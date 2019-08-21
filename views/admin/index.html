@@ -1,0 +1,47 @@
+{% extends '../layout/layout.html' %}
+
+{% block script %}
+{{ super() }}
+<script src="/script/admin/index.js"></script>
+{% endblock %}
+
+{% block style %}
+{{ super() }}
+<style>
+</style>
+{% endblock %}
+
+{% block content %}
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-md-8">
+      <h4 class="text-muted">Admin Page</h4>
+    </div>
+  </div>
+  <br/>
+  <div class="row">
+    <div class="col-md-4">
+      <p>System</p>
+      <hr/>
+      <ul class="system-container">
+        {% for module in page.systemModules %}
+        <li><a href="/admin/module/{{ module }}/list">{{ module }}</a></li>
+        {% endfor %}
+      </ul>
+      <br/>
+    </div>
+    <div class="col-md-4">
+      <p>App</p>
+      <hr/>
+      <ul class="app-container">
+        {% for module in page.appModules %}
+        <li>
+          <a href="/admin/module/{{ module }}/list">{{ module }}</a>
+          <a href="/openapi/{{ module }}/show/extension">API</a>
+        </li>
+        {% endfor %}
+      </ul>
+    </div>
+  </div>
+</div>
+{% endblock %}

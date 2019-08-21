@@ -1,0 +1,8 @@
+{
+  "name": "admin",
+  "dependencies": {
+  },
+  "scripts": {
+    "test_admin": "find -L ./test -name 'admin_test.js' | xargs mocha -R spec"
+  }
+}
